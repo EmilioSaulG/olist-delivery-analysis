@@ -1,5 +1,9 @@
 # Olist: impacto de los retrasos en la entrega
 
+**[Ver dashboard interactivo en Tableau Public](https://public.tableau.com/views/Dashboard1_17944698447920/Dashboard1)**
+
+![Dashboard](dashboard/captura_dashboard.png)
+
 Análisis de ~100 mil órdenes reales de un marketplace brasileño (Olist) para responder:
 **¿los retrasos en entrega afectan las calificaciones y cuánto dinero está en juego?**
 
@@ -22,11 +26,14 @@ Análisis de ~100 mil órdenes reales de un marketplace brasileño (Olist) para 
 ## Notas
 
 - Solo se incluyen órdenes con estatus "delivered". Los estados con menos de 100 órdenes se excluyeron del análisis por estado.
+- Las órdenes tardías del análisis de ingresos son 7,661 (y no 7,826) porque solo cuentan las que tienen reseña e ingreso registrado.
 - Los resultados muestran asociación, no causalidad.
 
-## Cómo reproducirlo
+## Estructura del proyecto
 
-1. Descarga el dataset de Olist en Kaggle y coloca los CSV en `data/raw/`.
-2. `pip install -r requirements.txt`
-3. `python3 load_data.py` (crea `olist.db`)
-4. Ejecuta las consultas de `sql/` y el notebook `notebooks/02_analisis.ipynb`.
+- `sql/`: consultas de análisis (retrasos, calificaciones, estados, ingresos en riesgo).
+- `notebooks/`: análisis y gráficas en Python.
+- `dashboard/`: datos exportados y captura del dashboard.
+- `load_data.py`: carga los CSV a SQLite.
+
+##
